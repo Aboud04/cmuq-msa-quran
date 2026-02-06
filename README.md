@@ -35,4 +35,17 @@ Since this is a static web application, no backend server is required.
 * Install the "Live Server" extension.
 * Right-click `index.html` and select "Open with Live Server".
 
-## 📂 Project Structure
+## 🤝 Contributing
+
+Contributions are welcome! If you'd like to improve the UI or add new features (like audio recitation or Tafsir):
+
+1.  Fork the repository.
+2.  Create a new branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
+##  Acknowledgments
+
+* Powered by the incredible [Quran.com API](https://quran.com/).
+* Developed for the CMU-Q Muslim Student Association.
