@@ -1,0 +1,285 @@
+:root {
+    /* CMUQ / Tartan Palette */
+    --bg-color: #121212;         /* Deep Dark Background */
+    --card-bg: #1E1E1E;          /* Card Background */
+    --highlight-bg: #252525;     /* Main Verse Background */
+    
+    /* Carnegie Mellon Tartan Red approx. */
+    --accent: #C41230;           
+    --accent-hover: #a00f28;
+    
+    --text-primary: #EDEDED;
+    --text-secondary: #A0A0A0;
+    --text-arabic: #FFFFFF;
+    
+    --font-arabic: 'Amiri', serif;
+    --font-english: 'Inter', sans-serif;
+    
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-english);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 700px; /* Slightly narrower for that "Links" page feel */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header & Logo */
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.logo-wrapper {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    width: 100px;  /* Adjust based on your actual logo file size */
+    height: auto;
+    object-fit: contain;
+    border-radius: 20%; /* Optional: Makes logo circular if square */
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Main Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.primary-btn {
+    background-color: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(196, 18, 48, 0.3); /* Red glow */
+    width: 100%;
+    max-width: 320px;
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(196, 18, 48, 0.4);
+}
+
+.primary-btn:active {
+    transform: translateY(0);
+}
+
+.primary-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Navigation Buttons (Load Prev/Next) */
+.nav-btn {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px dashed #404040;
+    padding: 12px;
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: rgba(196, 18, 48, 0.05);
+}
+
+.nav-btn .icon {
+    font-size: 1.1rem;
+}
+
+.nav-btn.hidden { display: none; }
+
+/* Verse Cards */
+.verses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.verse-card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+/* Main Verse Styling */
+.verse-card.main-verse {
+    background-color: var(--highlight-bg);
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 2;
+    transform: scale(1.02); /* Slight pop */
+}
+
+/* Context Verse Styling (faded) */
+.verse-card.context-verse {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+.verse-card.context-verse:hover {
+    opacity: 1;
+    border-color: #555;
+}
+
+/* Card Content */
+.verse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.main-verse .badge {
+    background: var(--accent);
+    color: #fff;
+}
+
+.arabic-text {
+    font-family: var(--font-arabic);
+    font-size: 2.2rem; /* Larger Arabic */
+    text-align: right;
+    direction: rtl;
+    color: var(--text-arabic);
+    margin-bottom: 1.25rem;
+    line-height: 2.4;
+}
+
+.translation-text {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/* Utility */
+.hidden { display: none; }
+
+#error-message {
+    background-color: rgba(196, 18, 48, 0.1);
+    border: 1px solid var(--accent);
+    color: #ff8a8a;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Loading */
+#loading {
+    text-align: center;
+    color: var(--text-secondary);
+    margin: 2rem 0;
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-left-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 10px;
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: #444;
+    font-size: 0.8rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+    .app-container {
+        padding: 0;
+    }
+    
+    .arabic-text {
+        font-size: 1.8rem;
+        line-height: 2;
+    }
+    
+    .verse-card.main-verse {
+        transform: scale(1);
+    }
+    
+    .primary-btn {
+        width: 100%;
+    }
+}

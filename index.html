@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Context | CMUQ MSA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <div class="logo-wrapper">
+                <img src="logo.png" alt="CMUQ MSA Logo" class="logo">
+            </div>
+            <h1>Quran Context</h1>
+            <p>Discover ayahs with their full meaning.</p>
+        </header>
+
+        <div class="controls">
+            <button id="generate-btn" class="primary-btn">
+                <span>Fetch Random Ayah</span>
+            </button>
+        </div>
+
+        <div id="error-message" class="hidden"></div>
+        
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p id="loading-text">Fetching verses...</p>
+        </div>
+
+        <button id="prev-btn" class="nav-btn hidden">
+            <span class="icon">↑</span> Load Previous Ayah
+        </button>
+
+        <div id="verses-container" class="verses-list">
+            </div>
+
+        <button id="next-btn" class="nav-btn hidden">
+            <span class="icon">↓</span> Load Next Ayah
+        </button>
+        
+        <footer>
+            <p>CMU-Q Muslim Student Association</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
